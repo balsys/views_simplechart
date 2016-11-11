@@ -1,0 +1,5 @@
+name = Simple Chart
+description = Simple visualization based on google api
+core = 7.x
+dependencies[] = views
+files[] = plugins/views_simplechart_plugin_style.inc
