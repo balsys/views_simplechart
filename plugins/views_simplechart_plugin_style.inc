@@ -47,7 +47,7 @@ class ViewsSimplechartPluginStyle extends views_plugin_style {
     $form['chart_type'] = array(
       '#type' => 'radios',
       '#title' => t('Chart type'),
-      '#options' => array('BarChart' => t('Bar Chart'),'PieChart' => t('Pie Chart'),'ColumnChart' => t('Column Chart')),
+      '#options' => array('BarChart' => t('Bar Chart'),'PieChart' => t('Pie Chart'),'ColumnChart' => t('Column Chart'),'Timeline' => t('Timeline')),
       '#default_value' => $this->options['chart_type'],
     );
     $form['chart_legend_position'] = array(

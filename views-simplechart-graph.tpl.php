@@ -9,7 +9,8 @@
         'width':<?php print $metadata['chart_width'];?>,
         'height':<?php print $metadata['chart_height'];?>
       };
-      var chart = new google.visualization.<?php print $metadata['chart_type'];?>(document.getElementById('views-simplechart-graph-<?php print $id ?>'));
+      var container = document.getElementById('views-simplechart-graph-<?php print $id ?>');
+      var chart = new google.visualization.<?php print $metadata['chart_type'];?>(container);
       chart.draw(data, options);
     });
   </script>
