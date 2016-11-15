@@ -3,6 +3,7 @@
     google.charts.setOnLoadCallback(function(){
       var data = new google.visualization.arrayToDataTable(<?php print $barchart;?>);
       var options = {
+        <?php (in_array($metadata['chart_type'],array('BarChart','ColumnChart')) && $metadata['chart_type_stacked'] == 'yes') ? print("'isStacked':true,") : NULL;?>
         'is3D':true,
         'legend':'<?php print $metadata['chart_legend_position'];?>',
         'title':'<?php print $metadata['chart_title'];?>',

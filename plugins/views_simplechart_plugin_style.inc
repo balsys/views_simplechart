@@ -18,6 +18,7 @@ class ViewsSimplechartPluginStyle extends views_plugin_style {
     $options = parent::option_definition();
     $options['chart_title'] = array('default' => 'Simple Chart');
     $options['chart_axis_mapping'] = array('default' => '');
+    $options['chart_type_stacked'] = array('default' => 'no');
     $options['chart_type'] = array('default' => 'bar');
     $options['chart_legend_position'] = array('default' => 'bottom');
     $options['chart_width'] = array('default' => '400');
@@ -50,6 +51,13 @@ class ViewsSimplechartPluginStyle extends views_plugin_style {
       '#options' => array('BarChart' => t('Bar Chart'),'PieChart' => t('Pie Chart'),'ColumnChart' => t('Column Chart'),'Timeline' => t('Timeline')),
       '#default_value' => $this->options['chart_type'],
     );
+    $form['chart_type_stacked'] = array(
+      '#type' => 'radios',
+      '#title' => t('Do you want Stack in Graph?'),
+      '#options' => array('yes' => t('Yes'),'no' => t('No')),
+      '#description' => t('This is applicable only for Bar and Column chart.'),
+      '#default_value' => $this->options['chart_type_stacked'],
+    );
     $form['chart_legend_position'] = array(
       '#type' => 'radios',
       '#title' => t('Chart Legend Position'),
@@ -77,6 +85,9 @@ class ViewsSimplechartPluginStyle extends views_plugin_style {
       $chartdata[] = array_values($row);
     }
     $chartdata = json_encode($chartdata, JSON_NUMERIC_CHECK);
+    if ($this->options['chart_type'] == 'Timeline') {
+      $chartdata = preg_replace('/"(\d+)-(\d+)-(\d+)"/i', 'new Date(\'$1-$2-$3\')', $chartdata);
+    }
     return theme('views_simplechart_graph', array('barchart' => $chartdata, 'metadata' => $this->options));
   }
 }
