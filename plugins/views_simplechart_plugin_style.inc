@@ -71,6 +71,12 @@ class ViewsSimplechartPluginStyle extends views_plugin_style {
   }
   
   function render() {
-    return theme('views_simplechart_graph', array('barchart' => $this->render_fields($this->view->result),'metadata' => $this->options));
+    $barchart = $this->render_fields($this->view->result);
+    $chartdata[] = explode(',', $this->options['chart_axis_mapping']);
+    foreach($barchart as $row) {
+      $chartdata[] = array_values($row);
+    }
+    $chartdata = json_encode($chartdata, JSON_NUMERIC_CHECK);
+    return theme('views_simplechart_graph', array('barchart' => $chartdata, 'metadata' => $this->options));
   }
 }

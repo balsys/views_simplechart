@@ -1,15 +1,7 @@
-<?php
-$chartdata[] = explode(',', $metadata['chart_axis_mapping']);
-foreach($barchart as $row) {
-  $chartdata[] = array_values($row);
-}
-$chartdata = json_encode($chartdata,JSON_NUMERIC_CHECK);
-?>
-
 <div id="views-simplechart-<?php print $id ?>" class="<?php print $classes ?>">
   <script type="text/javascript">
     google.charts.setOnLoadCallback(function(){
-      var data = new google.visualization.arrayToDataTable(<?php print $chartdata;?>);
+      var data = new google.visualization.arrayToDataTable(<?php print $barchart;?>);
       var options = {
         'is3D':true,
         'legend':'<?php print $metadata['chart_legend_position'];?>',
