@@ -1,0 +1,11 @@
+name: Simple Chart
+type: module
+description: Simple visualization based on google api
+package: Views
+core: 8.x
+
+libraries:
+  - views_simplechart/google-chart
+
+dependencies:
+  - views
