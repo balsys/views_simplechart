@@ -18,6 +18,7 @@ function template_preprocess_views_simplechart_graph(&$vars) {
     if(in_array($options['chart_type'],array('BarChart','ColumnChart')) && $options['chart_type_stacked'] == 'yes') {
       $vars['isStacked'] = 'yes';
     }
+    $vars['id'] = $view->storage->id() . '_' . $view->current_display;
     $vars['metadata'] = $options;
     $vars['jsondata'] = $chartdata;
   }
