@@ -8,7 +8,8 @@
         'legend':'<?php print $metadata['chart_legend_position'];?>',
         'title':'<?php print $metadata['chart_title'];?>',
         'width':<?php print $metadata['chart_width'];?>,
-        'height':<?php print $metadata['chart_height'];?>
+        'height':<?php print $metadata['chart_height'];?>,
+        'allowHtml':true
       };
       var container = document.getElementById('views-simplechart-graph-<?php print $id ?>');
       var chart = new google.visualization.<?php print $metadata['chart_type'];?>(container);
