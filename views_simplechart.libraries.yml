@@ -1,6 +1,7 @@
 google-chart:
   remote: https://www.gstatic.com/charts/
   version: 1.0
+  header: true
   license:
     name: MIT
     url: https://www.gstatic.com/charts/
@@ -8,3 +9,5 @@ google-chart:
   js:
     https://www.gstatic.com/charts/loader.js: { type: external, minified: true }
     js/google_chart_library.js: {}
+  dependencies:
+    - core/jquery
