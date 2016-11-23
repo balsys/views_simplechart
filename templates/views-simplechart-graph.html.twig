@@ -9,7 +9,8 @@
         'legend':'{{metadata.chart_legend_position}}',
         'title':'{{metadata.chart_title}}',
         'width':{{metadata.chart_width}},
-        'height':{{metadata.chart_height}}
+        'height':{{metadata.chart_height}},
+        'allowHtml':true
       };
       var container = document.getElementById('views-simplechart-graph-{{id}}');
       var chart = new google.visualization.{{metadata.chart_type}}(container);
