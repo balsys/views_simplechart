@@ -71,7 +71,14 @@ class ViewsSimplechart extends StylePluginBase {
     $form['chart_type'] = array(
       '#type' => 'radios',
       '#title' => t('Chart type'),
-      '#options' => array('BarChart' => t('Bar Chart'),'PieChart' => t('Pie Chart'),'ColumnChart' => t('Column Chart'),'Timeline' => t('Timeline'),'OrgChart' => t('Organization Chart')),
+      '#options' => array(
+        'BarChart' => t('Bar Chart'),
+        'PieChart' => t('Pie Chart'),
+        'LineChart' => t('Line Chart'),
+        'ColumnChart' => t('Column Chart'),
+        'Timeline' => t('Timeline'),
+        'OrgChart' => t('Organization Chart'),
+      ),
       '#default_value' => $this->options['chart_type'],
     );
     $form['chart_type_stacked'] = array(
