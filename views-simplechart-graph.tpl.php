@@ -1,5 +1,6 @@
 <div id="views-simplechart-<?php print $id ?>" class="<?php print $classes ?>">
   <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart','timeline','orgchart']}); 
     google.charts.setOnLoadCallback(function(){
       var data = new google.visualization.arrayToDataTable(<?php print $barchart;?>);
       var options = {
