@@ -1,6 +1,9 @@
 {{ attach_library('views_simplechart/google-chart') }}
 <div id="views-simplechart-{{id}}" class="{{ classes }}">
   <script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['corechart','timeline','orgchart']
+    });
     google.charts.setOnLoadCallback(function(){
       var data = new google.visualization.arrayToDataTable({{ jsondata|raw }});
       var options = {

@@ -8,6 +8,5 @@ google-chart:
     gpl-compatible: true
   js:
     https://www.gstatic.com/charts/loader.js: { type: external, minified: true }
-    js/google_chart_library.js: {}
   dependencies:
     - core/jquery
