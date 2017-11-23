@@ -35,17 +35,17 @@ class ViewsSimplechart extends StylePluginBase {
   protected $usesRowClass = FALSE;
 
   /**
-   * Set default options
+   * Set default options.
    */
   protected function defineOptions() {
     $options = parent::defineOptions();
-    $options['chart_title'] = array('default' => 'Simple Chart');
-    $options['chart_axis_mapping'] = array('default' => '');
-    $options['chart_type_stacked'] = array('default' => 'no');
-    $options['chart_type'] = array('default' => 'bar');
-    $options['chart_legend_position'] = array('default' => 'bottom');
-    $options['chart_width'] = array('default' => '400');
-    $options['chart_height'] = array('default' => '300');
+    $options['chart_title'] = ['default' => 'Simple Chart'];
+    $options['chart_axis_mapping'] = ['default' => ''];
+    $options['chart_type_stacked'] = ['default' => 'no'];
+    $options['chart_type'] = ['default' => 'bar'];
+    $options['chart_legend_position'] = ['default' => 'bottom'];
+    $options['chart_width'] = ['default' => '400'];
+    $options['chart_height'] = ['default' => '300'];
 
     return $options;
   }
@@ -55,64 +55,71 @@ class ViewsSimplechart extends StylePluginBase {
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
-    $form['chart_title'] = array(
+    $form['chart_title'] = [
       '#title' => t('Chart Title'),
       '#type' => 'textfield',
       '#size' => '60',
       '#default_value' => $this->options['chart_title'],
-    );
-    $form['chart_axis_mapping'] = array(
+    ];
+    $form['chart_axis_mapping'] = [
       '#title' => t('Chart Axis Mapping'),
       '#type' => 'textfield',
       '#description' => t('Each axis need to be placed as comma(,) separtor.'),
       '#size' => '60',
       '#default_value' => $this->options['chart_axis_mapping'],
-    );
-    $form['chart_type'] = array(
+    ];
+    $form['chart_type'] = [
       '#type' => 'radios',
       '#title' => t('Chart type'),
-      '#options' => array(
+      '#options' => [
         'BarChart' => t('Bar Chart'),
         'PieChart' => t('Pie Chart'),
         'LineChart' => t('Line Chart'),
         'ColumnChart' => t('Column Chart'),
         'Timeline' => t('Timeline'),
         'OrgChart' => t('Organization Chart'),
-      ),
+      ],
       '#default_value' => $this->options['chart_type'],
-    );
-    $form['chart_type_stacked'] = array(
+    ];
+    $form['chart_type_stacked'] = [
       '#type' => 'radios',
       '#title' => t('Do you want Stack in Graph?'),
-      '#options' => array('yes' => t('Yes'),'no' => t('No')),
+      '#options' => ['yes' => t('Yes'), 'no' => t('No')],
       '#description' => t('This is applicable only for Bar and Column chart.'),
       '#default_value' => $this->options['chart_type_stacked'],
-    );
-    $form['chart_legend_position'] = array(
+    ];
+    $form['chart_legend_position'] = [
       '#type' => 'radios',
       '#title' => t('Chart Legend Position'),
-      '#options' => array('left' => t('Left'),'right' => t('Right'),'top' => t('Top'),'bottom' => t('Bottom')),
+      '#options' => [
+        'left' => t('Left'),
+        'right' => t('Right'),
+        'top' => t('Top'),
+        'bottom' => t('Bottom'),
+      ],
       '#default_value' => $this->options['chart_legend_position'],
-    );
-    $form['chart_width'] = array(
+    ];
+    $form['chart_width'] = [
       '#title' => t('Chart Width'),
       '#type' => 'textfield',
       '#size' => '60',
       '#default_value' => $this->options['chart_width'],
-    );
-    $form['chart_height'] = array(
+    ];
+    $form['chart_height'] = [
       '#title' => t('Chart Height'),
       '#type' => 'textfield',
       '#size' => '60',
       '#default_value' => $this->options['chart_height'],
-    );
+    ];
   }
-  
+
   /**
-   * @see template_preprocess_views_simplechart()
-   * @return array|null
+   * Render fields.
+   *
+   * @see template_preprocess_views_simplechart_graph()
    */
-  public function get_render_fields() {
+  public function getRenderFields() {
     return $this->rendered_fields;
   }
+
 }
