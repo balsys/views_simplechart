@@ -2,7 +2,7 @@ name: Simple Chart
 type: module
 description: Simple visualization using the Google Chart API.
 package: Views
-core: 8.x
+core_version_requirement: ^8 || ^9
 
 libraries:
   - views_simplechart/google-chart
