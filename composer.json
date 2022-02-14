@@ -1,0 +1,7 @@
+{
+    "name": "balsys/views_simplechart",
+    "description": "Simple visualization using the Google Chart API.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "require": {}
+}
